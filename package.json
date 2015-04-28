@@ -1,0 +1,17 @@
+{
+  "name": "mochi",
+  "version": "0.0.0",
+  "private": true,
+  "author": "mizuman <YoshikiMiz@gmail.com>",
+  "description": "A simple helpful robot for your Company",
+  "dependencies": {
+    "hubot": "^2.12.0",
+    "hubot-heroku-keepalive": "0.0.4",
+    "hubot-redis-brain": "0.0.2",
+    "hubot-scripts": "^2.5.16",
+    "hubot-slack": "^3.3.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
