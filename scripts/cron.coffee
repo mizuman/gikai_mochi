@@ -1,5 +1,20 @@
-cron = require('cron').CronJob
+cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-  new cron '0 20 13 * * 2', () =>
-    robot.send {room: "team_tot_sv"}, "@channel そろそろ定例ですよー https://op00.nttcloud.net/redmine/projects/tot-svsoc/wiki"
+	cronjob_svmtg = new cronJob('00 20 13 * * 2', () =>
+		envelope = room: "team_tot_sv"
+		robot.send envelope, "@channel そろそろ定例ですよー https://op00.nttcloud.net/redmine/projects/tot-svsoc/wiki"
+	)
+	cronjob_svmtg.start()
+
+	cronjob_payday = new cronJob('00 00 7 20 * 1-5', () =>
+		envelope = room: "random"
+		robot.send envelope, "今日は給料日です。残業できないから気をつけて。（既に出社している人は早いです。カフェとかで時間をつぶしてね）"
+	)
+	cronjob_payday.start()
+
+	cronjob_voucher = new cronJob('00 45 11 15 * 1-5', () =>
+		envelope = room: "random"
+		robot.send envelope, "バウチャーはもらった？"
+	)
+	cronjob_voucher.start()
