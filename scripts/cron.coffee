@@ -8,13 +8,13 @@ module.exports = (robot) ->
 	cronjob_svmtg.start()
 
 	cronjob_payday = new cronJob('00 00 7 20 * 1-5', () =>
-		envelope = room: "random"
+		envelope = room: "general"
 		robot.send envelope, "今日は給料日です。残業できないから気をつけて。（既に出社している人は早いです。カフェとかで時間をつぶしてね）"
 	)
 	cronjob_payday.start()
 
 	cronjob_payday = new cronJob('00 20 17 20 * 1-5', () =>
-		envelope = room: "random"
+		envelope = room: "general"
 		robot.send envelope, "The last 10 minutes!"
 	)
 	cronjob_payday.start()
