@@ -1,9 +1,9 @@
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-	cronjob_svmtg = new cronJob('00 20 13 * * 2', () =>
+	cronjob_svmtg = new cronJob('00 35 13 * * 2', () =>
 		envelope = room: "team_tot_sv"
-		robot.send envelope, "@channel そろそろ定例ですよー https://op00.nttcloud.net/redmine/projects/tot-svsoc/wiki"
+		robot.send envelope, "<!channel> そろそろ定例ですよー https://redmine.nttcloud.net/projects/tot-svsoc/wiki"
 	)
 	cronjob_svmtg.start()
 
