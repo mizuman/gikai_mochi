@@ -24,9 +24,3 @@ module.exports = (robot) ->
 		robot.send envelope, "TGIF!:beers:"
 	)
 	cronjob_tgif.start()
-
-	cronjob_voucher = new cronJob('00 45 11 15 * 1-5', () =>
-		envelope = room: "random"
-		robot.send envelope, "バウチャーはもらった？"
-	)
-	cronjob_voucher.start()
